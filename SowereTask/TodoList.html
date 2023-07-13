@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/jquery-slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+    <script src="Todo.js"></script>
+    <title>Document</title>
+  </head>
+  <body
+    ng-app="todoapp"
+    style="
+      background-color: bisque;
+      background-image: url(todo1.jpg);
+      opacity: 1;
+    "
+    >
+      <div class="container-fluid">
+      <div class="row">
+      <div class="col-sm-12" style="text-decoration: line-through;">
+      <h1
+      class="news_taital"
+      style="
+              margin-left: 600px;
+              height: 50px;
+              margin-top: 10px;
+              font-style: inherit;
+              color: blueviolet;
+            "
+      >
+            TODO LIST
+      </h1>
+      </div>
+      </div>
+      </div>
+      <!-- <div>
+      <img
+        src="calendar.png"
+        alt=""
+        style="margin-left: 520px; height: 300px"
+      />
+      </div> -->
+      <div class="container-fluid" style="margin-top: 10px">
+      <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+      <div
+            ng-controller="todocontroller"
+            style="border: 1px solid red; margin-top: 10px"
+            >
+            <h5 align="center" style="color: brown; margin-top: ">TODO APP</h5>
+            <hr />
+
+            <input type="text" ng-model="text" style="margin-left: 300px" />
+            <input type="date" ng-model="date" />
+            <input type="time" ng-model="time" />
+            <button ng-click="addtask()" class="btn btn-danger">ADD+</button>
+            <hr />
+            <h4 style="margin-left: 400px">Current Time:{{currenttime}}</h4>
+            
+            <hr />
+            
+            <h3 style="margin-left: 10px; color: red">Incompleted Task:</h3>
+            <ul>
+            <li ng-repeat="task in todolist | filter: {status:false}">
+            <input type="checkbox" ng-click="task.status=true" />
+            <b>{{task.text}}</b> <u>{{task.date}} {{task.time}}</u>
+            <button ng-click="deletetask(task)">&times;</button>
+            </li>
+            </ul>
+            <hr />
+       <h3 style="margin-left: 30px; color: blue">Completed Task:</h3>
+       <ul>
+       <li ng-repeat="task in todolist | filter: {status:true}">
+       <input
+       type="checkbox"
+       ng-click="task.status=false"
+       checked="true"
+        />
+       <b>{{task.text}}</b> <u>{{task.date}} {{task.time}}</u>
+       <button ng-click="deletetask(task)">&times;</button>
+       </li>
+       </ul>
+       </div>
+       <div class="col-sm-1"></div>
+       </div>
+       </div>
+       </div>
+    </body>
+</html>
